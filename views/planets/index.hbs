@@ -1,0 +1,43 @@
+<section>
+  <h1>Bienvenue sur la page des Planètes du Système Solaire </h1>
+  <br />
+
+  <h3> Ajouter une planète du Système Solaire </h3>
+  <form method="post" action="/proposals" enctype="multipart/form-data">
+    <div>
+      <label>Nom de la planète : </label>
+      <input type="text" name="name" />
+    </div>
+    <div>
+      <label>Type de la Planète : </label>
+      <input type="text" name="type" />
+    </div>
+    <div>
+      <label> Taille de la planète : </label>
+      <input type="text" name="size" />
+    </div>
+    <div>
+      <label> Masse de la planète : </label>
+      <input type="text" name="mass" />
+    </div>
+    <div>
+      <label> Densité de la planète : </label>
+      <input type="text" name="density" />
+    </div>
+    <label>Composition atmosphérique : </label>
+    <div>
+
+      <textarea
+        name="atm_composition"
+        rows="4"
+        cols="50"
+        placeholder="Entrer la composition atmosphérique"
+      ></textarea>
+    </div>
+
+    <div>
+      <input type="submit" value="Envoyer" />
+    </div>
+
+  </form>
+</section>
