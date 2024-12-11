@@ -39,9 +39,16 @@ class Main {
     }
   }
 
-  validateSize(size,errors){
-    if(isNaN(size)|| size<0){
-      errors.push("Valeur de la taille est invalide")
+  validateSize(size, errors) {
+    if (isNaN(size) || size < 0) {
+      errors.push("Valeur de la taille est invalide");
+    }
+  }
+  validatePlanetSize(errors, size) {
+    if (!validator.isFloat(size.toString(), { min: 0.1, max: 100 })) {
+      errors.push(
+        "La taille de la planète doit être u nombre 0.1 et 100 rayons terrestres."
+      );
     }
   }
 }
