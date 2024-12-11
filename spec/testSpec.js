@@ -234,7 +234,17 @@ describe("ValidateMass function should add an error message", function () {
     const mass = "sggsgg";
     const errors = [];
 
-    main.validateMass(mass,errors);
+    main.validateMass(mass, errors);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe("Valeur de la masse invalide");
+  });
+  it("Should add an error message when mass is a negative number", function () {
+    const main = new Main();
+    const mass = -23;
+    const errors = [];
+
+    main.validateMass(mass, errors);
 
     expect(errors.length).toBe(1);
     expect(errors[0]).toBe("Valeur de la masse invalide");

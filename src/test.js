@@ -53,11 +53,10 @@ class Main {
   }
 
   validateMass(mass, errors) {
-    if (isNaN(mass) ) {
+    if (isNaN(mass) || mass < 0) {
       errors.push("Valeur de la masse invalide");
     }
   }
-
 }
 
 module.exports = Main;
