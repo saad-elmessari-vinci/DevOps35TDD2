@@ -28,5 +28,13 @@ describe("ValidatePlanetNameLength function should add an error message", functi
   it("Should add 'Le nom de la planète doit etre plus petit que 16 caractères' to errors if name s too long", function () {
     const main = new Main();
     const name = "name tooooo long";
+    const errors = [];
+
+    main.validatePlanetNameLength(errors, name);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe(
+      "Le nom de la planète doit etre plus petit que 16 caractères"
+    );
   });
 });
