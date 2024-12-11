@@ -249,4 +249,15 @@ describe("ValidateMass function should add an error message", function () {
     expect(errors.length).toBe(1);
     expect(errors[0]).toBe("Valeur de la masse invalide");
   });
+
+  it("Should not add an error message when mass is a positive number", function () {
+    const main = new Main();
+    const mass = 345;
+    const errors = [];
+
+    main.validateMass(mass, errors);
+
+    expect(errors.length).toBe(0);
+    expect(errors[0]).toBe(undefined);
+  });
 });
