@@ -19,7 +19,13 @@ module.exports.list = () => {
   return db.prepare("SELECT * FROM proposals WHERE status = 'Pending'").all();
 };
 
-
 module.exports.findById = (id) => {
   return db.prepare("SELECT * FROM proposals WHERE id_proposal = ?").get(id);
+};
+
+module.exports.updateStatus = (status, id) => {
+  const stmt = db.prepare(
+    "UPDATE proposals SET status = ?  WHERE id_proposal=?"
+  );
+  stmt.run(status, id);
 };
