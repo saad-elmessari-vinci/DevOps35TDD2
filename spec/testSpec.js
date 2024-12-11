@@ -339,4 +339,16 @@ describe("ValidatePlanetDensity function should add an error message", function 
       "La densité de la planète doit être un nombre entre 0.5 et 20 g/cm³."
     );
   });
+  it("Should add an error when density is greater than 20", function () {
+    const main = new Main();
+    const density = 20.1;
+    const errors = [];
+
+    main.validatePlanetDensity(errors, density);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe(
+      "La densité de la planète doit être un nombre entre 0.5 et 20 g/cm³."
+    );
+  });
 });
