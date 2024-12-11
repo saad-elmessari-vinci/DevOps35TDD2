@@ -4,13 +4,13 @@ const router = express.Router();
 const Planet = require("../models/Planet.js");
 
 router.post("/", (req, res, next) => {
+  const errors = [];
   const planetData = parsePlanetData(req.body);
   if (isPresent(planetData)) {
-    //is present case
+    isPresentCase(errors, req, res);
   } else {
     //is not present case
   }
-
 });
 
 function parsePlanetData(data) {
@@ -30,6 +30,12 @@ function isPresent(planetData) {
     return true;
   }
   return false;
+}
+
+function isPresentCase(errors, req, res) {
+  errors.push("La planète est déjà présente");
+  req.session.errors = errors;
+  res.redirect("/planets");
 }
 
 module.exports = router;
