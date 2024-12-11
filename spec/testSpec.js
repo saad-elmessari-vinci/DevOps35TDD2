@@ -132,8 +132,18 @@ describe("ValidatePlanetType function should add an error message", function () 
     );
   });
 
-  it("Should not add an error message if type  is 'Rocheuse' or 'Gazeuse' or 'Géante glacée' ", function () {
+  it("Should not add an error message if type  is 'Rocheuse' ", function () {
     const type = "Rocheuse";
+    const error = [];
+
+    main.validatePlanetType(error, type);
+
+    expect(error.length).toBe(0);
+    expect(error[0]).toBe(undefined);
+  });
+
+  it("Should not add an error message if type  is 'Gazeuse' ", function () {
+    const type = "Gazeuse";
     const error = [];
 
     main.validatePlanetType(error, type);
