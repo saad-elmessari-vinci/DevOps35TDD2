@@ -85,4 +85,23 @@ function validatePlanetType(errors, type) {
   }
 }
 
+function validateSizePlanet(errors, size) {
+  validateSize(size, errors);
+  validatePlanetSize(errors, size);
+}
+
+function validateSize(size, errors) {
+  if (isNaN(size) || size < 0) {
+    errors.push("Valeur de la taille est invalide");
+  }
+}
+
+function validatePlanetSize(errors, size) {
+  if (!validator.isFloat(size.toString(), { min: 0.1, max: 100 })) {
+    errors.push(
+      "La taille de la planète doit être u nombre 0.1 et 100 rayons terrestres."
+    );
+  }
+}
+
 module.exports = router;
