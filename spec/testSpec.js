@@ -164,8 +164,8 @@ describe("ValidatePlanetType function should add an error message", function () 
 });
 
 describe("ValidateSize function should add an error message", function () {
+  const main = new Main();
   it("Should add an error message when size is not a number", function () {
-    const main = new Main();
     const size = "fsg";
     const errors = [];
 
@@ -174,9 +174,7 @@ describe("ValidateSize function should add an error message", function () {
     expect(errors.length).toBe(1);
     expect(errors[0]).toBe("Valeur de la taille est invalide");
   });
-
   it("Should add an error message when size is a negative number", function () {
-    const main = new Main();
     const size = -23;
     const errors = [];
 
@@ -185,8 +183,7 @@ describe("ValidateSize function should add an error message", function () {
     expect(errors.length).toBe(1);
     expect(errors[0]).toBe("Valeur de la taille est invalide");
   });
-  it("Should not add an error message when size is an positive number",function(){
-    const main = new Main();
+  it("Should not add an error message when size is an positive number", function () {
     const size = 23;
     const errors = [];
 
@@ -194,5 +191,5 @@ describe("ValidateSize function should add an error message", function () {
 
     expect(errors.length).toBe(0);
     expect(errors[0]).toBe(undefined);
-  })
+  });
 });
