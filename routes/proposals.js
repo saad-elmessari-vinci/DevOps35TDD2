@@ -21,6 +21,11 @@ router.post("/accept", (req, res, next) => {
   res.redirect("/planets");
 });
 
+router.post("/reject", (req, res, next) => {
+  const id = parseInt(req.body.id);
+  Proposal.updateStatus("Refused", id);
+  res.redirect("/planets");
+});
 
 router.post("/", (req, res, next) => {
   const errors = [];
