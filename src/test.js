@@ -65,6 +65,11 @@ class Main {
       );
     }
   }
+  validateDensity(density, errors) {
+    if (isNaN(density)) {
+      errors.push("Valeur de la densité invalide");
+    }
+  }
 }
 
 module.exports = Main;

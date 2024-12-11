@@ -294,3 +294,16 @@ describe("ValidatePlanetMass function should add an error message", function () 
     expect(errors[0]).toBe(undefined);
   });
 });
+
+describe("ValidateDensity function should add an error message", function () {
+  it("Should add a message error when desnty is not a number", function () {
+    const main = new Main();
+    const density = "sdgsgs";
+    const errors = [];
+
+    main.validateDensity(density, errors);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe("Valeur de la densité invalide");
+  });
+});
