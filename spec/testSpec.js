@@ -316,4 +316,14 @@ describe("ValidateDensity function should add an error message", function () {
     expect(errors.length).toBe(1);
     expect(errors[0]).toBe("Valeur de la densité invalide");
   });
+  it("Should not add an error message when density is a positive number", function () {
+    const main = new Main();
+    const density = 34;
+    const errors = [];
+
+    main.validateDensity(density, errors);
+
+    expect(errors.length).toBe(0);
+    expect(errors[0]).toBe(undefined);
+  });
 });
