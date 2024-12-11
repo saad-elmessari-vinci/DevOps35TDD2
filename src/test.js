@@ -70,6 +70,13 @@ class Main {
       errors.push("Valeur de la densité invalide");
     }
   }
+  validatePlanetDensity(errors, density) {
+    if (!validator.isFloat(density.toString(), { min: 0.5, max: 20 })) {
+      errors.push(
+        "La densité de la planète doit être un nombre entre 0.5 et 20 g/cm³."
+      );
+    }
+  }
 }
 
 module.exports = Main;
