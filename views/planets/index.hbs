@@ -3,7 +3,7 @@
   <br />
 
   <h3> Ajouter une planète du Système Solaire </h3>
-  <form method="post" action="/proposals" enctype="multipart/form-data">
+  <form method="post" action="/proposals">
     <div>
       <label>Nom de la planète : </label>
       <input type="text" name="name" />
@@ -40,4 +40,12 @@
     </div>
 
   </form>
+  {{#if errors}}
+    <section>
+      <h2>Erreurs : </h2>
+      {{#each errors}}
+        <p class="error-message"> {{this}} </p>
+      {{/each}}
+    </section>
+  {{/if}}
 </section>

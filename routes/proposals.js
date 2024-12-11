@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+const validator = require("validator");
 const Proposal = require("../models/Proposal.js");
 const User = require("../models/User.js");
 const Planet = require("../models/Planet.js");
