@@ -52,8 +52,8 @@ describe("ValidatePlanetNameLength function should add an error message", functi
 });
 
 describe("ValidatePlanetNameCharacters function should add an error message", function () {
+  const main = new Main();
   it("Should add 'Le nom de la planète doit contenir uniquement des caractères aplhanumériques, des espaces ou des tirets.' if name is not alphanumeric", function () {
-    const main = new Main();
     const name = "à'!à!è!ç!";
     const errors = [];
 
@@ -66,7 +66,6 @@ describe("ValidatePlanetNameCharacters function should add an error message", fu
   });
 
   it("Should not add an error message when name is alphanumeric", function () {
-    const main = new Main();
     const name = "Mars";
     const errors = [];
 
