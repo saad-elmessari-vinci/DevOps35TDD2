@@ -11,5 +11,16 @@ describe("ValidateName function should add an error message", function () {
     expect(errors.length).toBe(1);
     expect(errors[0]).toBe("Le nom est requis");
   });
+
+  it("Should add 'Le nom est requis' to errors if name is empty", function () {
+    const main = new Main();
+    const name="  ";
+    const errors = [];
+
+    main.validateName(name, errors);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe("Le nom est requis");
+  });
       
 });
