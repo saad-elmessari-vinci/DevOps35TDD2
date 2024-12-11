@@ -38,7 +38,7 @@ describe("ValidatePlanetNameLength function should add an error message", functi
       "Le nom de la planète doit contenir entre 3 et 15 caractères"
     );
   });
-  it("Should add 'Le nom de la planète doit contenir entre 3 et 15 caractères' to errors if name is too short",function(){
+  it("Should add 'Le nom de la planète doit contenir entre 3 et 15 caractères' to errors if name is too short", function () {
     const errors = [];
     const name = "n";
 
@@ -48,5 +48,20 @@ describe("ValidatePlanetNameLength function should add an error message", functi
     expect(errors[0]).toBe(
       "Le nom de la planète doit contenir entre 3 et 15 caractères"
     );
-  })
+  });
+});
+
+describe("ValidatePlanetNameCharacters function should add an error message", function () {
+  it("Should add 'Le nom de la planète doit contenir uniquement des caractères aplhanumériques, des espaces ou des tirets.' if name is not alphanumeric", function () {
+    const main = new Main();
+    const name = "à'!à!è!ç!";
+    const errors = [];
+
+    main.validatePlanetNameCharacters(errors, name);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe(
+      "Le nom de la planète doit contenir uniquement des caractères aplhanumériques, des espaces ou des tirets."
+    );
+  });
 });

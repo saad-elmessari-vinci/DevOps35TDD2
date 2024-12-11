@@ -14,6 +14,13 @@ class Main {
       );
     }
   }
+  validatePlanetNameCharacters(errors, name) {
+    if (!validator.isAlphanumeric(name, "fr-FR", { ignore: " -" })) {
+      errors.push(
+        "Le nom de la planète doit contenir uniquement des caractères aplhanumériques, des espaces ou des tirets."
+      );
+    }
+  }
 }
 
 module.exports = Main;
