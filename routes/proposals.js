@@ -37,6 +37,16 @@ function isPresentCase(errors, req, res) {
   req.session.errors = errors;
   res.redirect("/planets");
 }
+function isNotPresentCase(planetData, errors, req, res) {
+  validateData(planetData, errors);
+  if (errors.length == 0) {
+    const user = User.find(req.session.login);
+    Proposal.add({ ...planetData, id: user.id_user });
+  } else {
+    req.session.errors = errors;
+  }
+  return res.redirect("/planets");
+}
 
 function validateData(data, errors) {
   validatePlanetName(errors, data.name);
