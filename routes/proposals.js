@@ -9,7 +9,7 @@ router.post("/", (req, res, next) => {
   if (isPresent(planetData)) {
     isPresentCase(errors, req, res);
   } else {
-    //is not present case
+    return isNotPresentCase(planetData, errors, req, res);
   }
 });
 
