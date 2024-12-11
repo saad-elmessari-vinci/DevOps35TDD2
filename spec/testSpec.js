@@ -327,8 +327,8 @@ describe("ValidateDensity function should add an error message", function () {
 });
 
 describe("ValidatePlanetDensity function should add an error message", function () {
+  const main = new Main();
   it("Should add an error when density is smaller than 0.5", function () {
-    const main = new Main();
     const density = 0.4;
     const errors = [];
 
@@ -340,7 +340,6 @@ describe("ValidatePlanetDensity function should add an error message", function 
     );
   });
   it("Should add an error when density is greater than 20", function () {
-    const main = new Main();
     const density = 20.1;
     const errors = [];
 
@@ -352,7 +351,6 @@ describe("ValidatePlanetDensity function should add an error message", function 
     );
   });
   it("Should not add an error message when density is greater than 0.5 and smaller than 20", function () {
-    const main = new Main();
     const density = 13;
     const errors = [];
 
