@@ -5,3 +5,7 @@ module.exports.findByName = (name) => {
     .prepare("SELECT * FROM solar_system_planets WHERE name = ?")
     .get(name);
 };
+
+module.exports.list = () => {
+  return db.prepare("SELECT * FROM solar_system_planets ").all();
+};
