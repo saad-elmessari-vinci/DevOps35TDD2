@@ -2,6 +2,52 @@
   <h1>Bienvenue sur la page des Planètes du Système Solaire </h1>
   <br />
 
+  {{#if session.admin}}
+    <h2>Liste des Propositions des Utilisateurs</h2>
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th>ID proposition</th>
+          <th>Nom</th>
+          <th>Type</th>
+          <th>Taille </th>
+          <th>Masse </th>
+          <th>Densité </th>
+          <th>Composition de l'Atmosphère </th>
+          <th> Id Utilisateur</th>
+          <th> Actions </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each proposalsTable}}
+          <tr>
+            <td> {{this.id_proposal}} </td>
+            <td> {{this.name}} </td>
+            <td> {{this.type}} </td>
+            <td> {{this.size}} </td>
+            <td> {{this.mass}} </td>
+            <td> {{this.density}} </td>
+            <td> {{this.atmosphere_composition}} </td>
+            <td> {{this.user}} </td>
+            <td>
+
+              <form method="post" action="/proposals/accept">
+                <input type="hidden" name="id" value="{{this.id_proposal}}" />
+                <input type="submit" value="Accepter" />
+              </form>
+              <form method="post" action="/proposals/reject">
+                <input type="hidden" name="id" value="{{this.id_proposal}}" />
+                <input type="submit" value="Refuser" />
+              </form>
+            </td>
+          </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+  {{/if}}
+
   <h2>Liste des Planètes</h2>
   <br />
   <table>
