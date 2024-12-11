@@ -87,8 +87,8 @@ describe("ValidatePlanetNameCharacters function should add an error message", fu
 });
 
 describe("ValidateType function should add an error message", function () {
+  const main = new Main();
   it("Should add 'Le type est requis' to errors if type is undefined", function () {
-    const main = new Main();
     const errors = [];
     const type = undefined;
 
@@ -98,14 +98,13 @@ describe("ValidateType function should add an error message", function () {
     expect(errors[0]).toBe("Le type est requis.");
   });
 
-  it("Should add 'Le type est requis' to errors if type is empty", function(){
-    const main=new Main();
-    const type="  ";
-    const errors=[];
+  it("Should add 'Le type est requis' to errors if type is empty", function () {
+    const type = "  ";
+    const errors = [];
 
-    main.validateType(type,errors);
+    main.validateType(type, errors);
 
     expect(errors.length).toBe(1);
     expect(errors[0]).toBe("Le type est requis.");
-  })
+  });
 });
