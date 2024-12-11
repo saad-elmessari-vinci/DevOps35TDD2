@@ -51,6 +51,13 @@ class Main {
       );
     }
   }
+
+  validateMass(mass, errors) {
+    if (isNaN(mass) ) {
+      errors.push("Valeur de la masse invalide");
+    }
+  }
+
 }
 
 module.exports = Main;

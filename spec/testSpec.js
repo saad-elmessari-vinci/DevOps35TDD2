@@ -226,5 +226,17 @@ describe("ValidatePlanetSize function should add an error message", function () 
     expect(errors.length).toBe(0);
     expect(errors[0]).toBe(undefined);
   });
-  
+});
+
+describe("ValidateMass function should add an error message", function () {
+  it("Should add an error when mass is not a number", function () {
+    const main = new Main();
+    const mass = "sggsgg";
+    const errors = [];
+
+    main.validateMass(mass,errors);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe("Valeur de la masse invalide");
+  });
 });
