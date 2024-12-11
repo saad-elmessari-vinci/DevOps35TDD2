@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+const User = require("../models/User.js");
 const Planet = require("../models/Planet.js");
 
 router.post("/", (req, res, next) => {
