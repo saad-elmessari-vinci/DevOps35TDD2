@@ -63,5 +63,26 @@ function validatePlanetNameCharacters(errors, name) {
     );
   }
 }
+function validateTypePlanet(errors, type) {
+  validateType(type, errors);
+  validatePlanetType(errors, type);
+}
+
+function validateType(type, errors) {
+  if (!type || type.trim().length === 0) {
+    errors.push("Le type est requis.");
+  }
+}
+
+function validatePlanetType(errors, type) {
+  const validTypes = ["Rocheuse", "Gazeuse", "Géante glacée"];
+  if (type !== "Rocheuse" && type !== "Gazeuse" && type !== "Géante glacée") {
+    errors.push(
+      `Le type de la planète doit être l'un des suivants : ${validTypes.join(
+        ", "
+      )}.`
+    );
+  }
+}
 
 module.exports = router;
