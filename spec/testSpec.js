@@ -229,8 +229,8 @@ describe("ValidatePlanetSize function should add an error message", function () 
 });
 
 describe("ValidateMass function should add an error message", function () {
+  const main = new Main();
   it("Should add an error when mass is not a number", function () {
-    const main = new Main();
     const mass = "sggsgg";
     const errors = [];
 
@@ -240,7 +240,6 @@ describe("ValidateMass function should add an error message", function () {
     expect(errors[0]).toBe("Valeur de la masse invalide");
   });
   it("Should add an error message when mass is a negative number", function () {
-    const main = new Main();
     const mass = -23;
     const errors = [];
 
@@ -251,7 +250,6 @@ describe("ValidateMass function should add an error message", function () {
   });
 
   it("Should not add an error message when mass is a positive number", function () {
-    const main = new Main();
     const mass = 345;
     const errors = [];
 
