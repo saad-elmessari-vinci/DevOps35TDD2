@@ -38,6 +38,12 @@ class Main {
       );
     }
   }
+
+  validateSize(size,errors){
+    if(isNaN(size)){
+      errors.push("Valeur de la taille est invalide")
+    }
+  }
 }
 
 module.exports = Main;
