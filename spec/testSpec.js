@@ -261,8 +261,8 @@ describe("ValidateMass function should add an error message", function () {
 });
 
 describe("ValidatePlanetMass function should add an error message", function () {
+  const main = new Main();
   it("Should add an error message when mass is smaller than 0.001", function () {
-    const main = new Main();
     const mass = 0;
     const errors = [];
 
@@ -274,7 +274,6 @@ describe("ValidatePlanetMass function should add an error message", function () 
     );
   });
   it("Should add an error message when mass is greater than 5000 ", function () {
-    const main = new Main();
     const mass = 5300;
     const errors = [];
 
@@ -286,7 +285,6 @@ describe("ValidatePlanetMass function should add an error message", function () 
     );
   });
   it("Should not add an error message when mass is smaller than 5000 and greater than 0.001", function () {
-    const main = new Main();
     const mass = 4555;
     const errors = [];
 
