@@ -18,3 +18,8 @@ module.exports.add = (data) => {
 module.exports.list = () => {
   return db.prepare("SELECT * FROM proposals WHERE status = 'Pending'").all();
 };
+
+
+module.exports.findById = (id) => {
+  return db.prepare("SELECT * FROM proposals WHERE id_proposal = ?").get(id);
+};
