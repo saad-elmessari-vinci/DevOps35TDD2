@@ -66,7 +66,7 @@ class Main {
     }
   }
   validateDensity(density, errors) {
-    if (isNaN(density)) {
+    if (isNaN(density) || density < 0) {
       errors.push("Valeur de la densité invalide");
     }
   }
