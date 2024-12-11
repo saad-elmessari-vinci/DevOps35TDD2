@@ -226,4 +226,5 @@ describe("ValidatePlanetSize function should add an error message", function () 
     expect(errors.length).toBe(0);
     expect(errors[0]).toBe(undefined);
   });
+  
 });
