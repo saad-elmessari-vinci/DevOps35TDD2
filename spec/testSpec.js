@@ -217,4 +217,13 @@ describe("ValidatePlanetSize function should add an error message", function () 
       "La taille de la planète doit être u nombre 0.1 et 100 rayons terrestres."
     );
   });
+  it("Should not add an error message when size is smaller than 100 and greater than 0.1", function () {
+    const size = 45;
+    const errors = [];
+
+    main.validatePlanetSize(errors, size);
+
+    expect(errors.length).toBe(0);
+    expect(errors[0]).toBe(undefined);
+  });
 });
