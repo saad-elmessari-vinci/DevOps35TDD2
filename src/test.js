@@ -21,6 +21,12 @@ class Main {
       );
     }
   }
+
+  validateType(type, errors) {
+    if (!type) {
+      errors.push("Le type est requis.");
+    }
+  }
 }
 
 module.exports = Main;

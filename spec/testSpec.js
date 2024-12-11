@@ -75,13 +75,26 @@ describe("ValidatePlanetNameCharacters function should add an error message", fu
     expect(errors[0]).toBe(undefined);
   });
 
-  it("Should not add an error message when name contains hyphens ",function(){
-    const name ="Test-Test"
-    const errors=[];
+  it("Should not add an error message when name contains hyphens ", function () {
+    const name = "Test-Test";
+    const errors = [];
 
-    main.validatePlanetNameCharacters(errors,name);
+    main.validatePlanetNameCharacters(errors, name);
 
     expect(errors.length).toBe(0);
     expect(errors[0]).toBe(undefined);
-  })
+  });
+});
+
+describe("ValidateType function should add an error message", function () {
+  it("Should add 'Le type est requis' to errors if type is undefined", function () {
+    const main = new Main();
+    const errors = [];
+    const type = undefined;
+
+    main.validateType(type, errors);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe("Le type est requis.");
+  });
 });
