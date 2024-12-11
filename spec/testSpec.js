@@ -296,8 +296,8 @@ describe("ValidatePlanetMass function should add an error message", function () 
 });
 
 describe("ValidateDensity function should add an error message", function () {
+  const main = new Main();
   it("Should add a message error when desnty is not a number", function () {
-    const main = new Main();
     const density = "sdgsgs";
     const errors = [];
 
@@ -307,7 +307,6 @@ describe("ValidateDensity function should add an error message", function () {
     expect(errors[0]).toBe("Valeur de la densité invalide");
   });
   it("Should add an error message when density is negative", function () {
-    const main = new Main();
     const density = -234;
     const errors = [];
 
@@ -317,7 +316,6 @@ describe("ValidateDensity function should add an error message", function () {
     expect(errors[0]).toBe("Valeur de la densité invalide");
   });
   it("Should not add an error message when density is a positive number", function () {
-    const main = new Main();
     const density = 34;
     const errors = [];
 
