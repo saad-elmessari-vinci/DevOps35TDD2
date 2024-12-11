@@ -121,5 +121,22 @@ function validatePlanetMass(errors, mass) {
     );
   }
 }
+function validateDensityPlanet(errors, density) {
+  validateDensity(density, errors);
+  validatePlanetDensity(errors, density);
+}
+
+function validateDensity(density, errors) {
+  if (isNaN(density) || density < 0) {
+    errors.push("Valeur de la densité invalide");
+  }
+}
+function validatePlanetDensity(errors, density) {
+  if (!validator.isFloat(density.toString(), { min: 0.5, max: 20 })) {
+    errors.push(
+      "La densité de la planète doit être un nombre entre 0.5 et 20 g/cm³."
+    );
+  }
+}
 
 module.exports = router;
