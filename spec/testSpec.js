@@ -119,8 +119,8 @@ describe("ValidateType function should add an error message", function () {
 });
 
 describe("ValidatePlanetType function should add an error message", function () {
+  const main = new Main();
   it("Should add an error message if type does is not 'Rocheuse' nor 'Gazeuse' nor 'Géante glacée' ", function () {
-    const main = new Main();
     const type = "Test";
     const error = [];
 
@@ -133,7 +133,6 @@ describe("ValidatePlanetType function should add an error message", function () 
   });
 
   it("Should not add an error message if type  is 'Rocheuse' or 'Gazeuse' or 'Géante glacée' ", function () {
-    const main = new Main();
     const type = "Rocheuse";
     const error = [];
 
