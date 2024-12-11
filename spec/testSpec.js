@@ -74,4 +74,14 @@ describe("ValidatePlanetNameCharacters function should add an error message", fu
     expect(errors.length).toBe(0);
     expect(errors[0]).toBe(undefined);
   });
+
+  it("Should not add an error message when name contains hyphens ",function(){
+    const name ="Test-Test"
+    const errors=[];
+
+    main.validatePlanetNameCharacters(errors,name);
+
+    expect(errors.length).toBe(0);
+    expect(errors[0]).toBe(undefined);
+  })
 });
