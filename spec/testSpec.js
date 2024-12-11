@@ -259,3 +259,18 @@ describe("ValidateMass function should add an error message", function () {
     expect(errors[0]).toBe(undefined);
   });
 });
+
+describe("ValidatePlanetMass function should add an error message", function () {
+  it("Should add an error message when mass is smaller than 0.001", function () {
+    const main = new Main();
+    const mass = 0;
+    const errors = [];
+
+    main.validatePlanetMass(errors, mass);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe(
+      "La masse de la planète doit être un nombre entre 0.001 et 5000 masses terrestres."
+    );
+  });
+});

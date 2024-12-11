@@ -57,6 +57,14 @@ class Main {
       errors.push("Valeur de la masse invalide");
     }
   }
+
+  validatePlanetMass(errors, mass) {
+    if (!validator.isFloat(mass.toString(), { min: 0.001, max: 5000 })) {
+      errors.push(
+        "La masse de la planète doit être un nombre entre 0.001 et 5000 masses terrestres."
+      );
+    }
+  }
 }
 
 module.exports = Main;
