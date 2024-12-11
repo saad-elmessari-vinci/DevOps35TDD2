@@ -8,9 +8,9 @@ class Main {
   }
 
   validatePlanetNameLength(errors, name) {
-    if (name.length > 15) {
+    if (!validator.isLength(name, { min: 3, max: 15 })) {
       errors.push(
-        "Le nom de la planète doit etre plus petit que 16 caractères"
+        "Le nom de la planète doit contenir entre 3 et 15 caractères"
       );
     }
   }
