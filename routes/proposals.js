@@ -38,6 +38,15 @@ function isPresentCase(errors, req, res) {
   res.redirect("/planets");
 }
 
+function validateData(data, errors) {
+  validatePlanetName(errors, data.name);
+  validateTypePlanet(errors, data.type);
+  validateSizePlanet(errors, data.size);
+  validateMassPlanet(errors, data.mass);
+  validateDensityPlanet(errors, data.density);
+  validateAtmosphereCompositionLength(errors, data.atm_composition);
+}
+
 function validatePlanetName(errors, name) {
   validateName(name, errors);
   validatePlanetNameLength(errors, name);
