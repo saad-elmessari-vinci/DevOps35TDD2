@@ -151,4 +151,14 @@ describe("ValidatePlanetType function should add an error message", function () 
     expect(error.length).toBe(0);
     expect(error[0]).toBe(undefined);
   });
+
+  it("Should not add an error message if type  is 'Géante glacée' ", function () {
+    const type = "Géante glacée";
+    const error = [];
+
+    main.validatePlanetType(error, type);
+
+    expect(error.length).toBe(0);
+    expect(error[0]).toBe(undefined);
+  });
 });
