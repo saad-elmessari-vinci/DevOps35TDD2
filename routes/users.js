@@ -84,14 +84,14 @@ function detectUser(userFound, req, res) {
 
 function tryConnection(req, userFound, res) {
     if (bcrypt.compareSync(req.body.userPassword, userFound.password)) {
-        userFound(req, userFound, res);
+        userFoundFunction(req, userFound, res);
     }
     else {
         badPassword(req, res);
     }
 }
 
-function userFound(req, userFound, res) {
+function userFoundFunction(req, userFound, res) {
     correctPassword(req);
     if (userFound.admin) {
         isAdmin(req, res);
