@@ -40,7 +40,7 @@ class Main {
   }
 
   validateSize(size,errors){
-    if(isNaN(size)){
+    if(isNaN(size)|| size<0){
       errors.push("Valeur de la taille est invalide")
     }
   }
