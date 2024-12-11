@@ -374,4 +374,17 @@ describe("ValidateAtmosphereCompositionLength function should add an error messa
       "La composition de l'atmosphère doit contenir entre 5 et 200 caractères."
     );
   });
+  it("Should add an error message when atmosphere composition is greater than 200 characters", function () {
+    const main = new Main();
+    const atm_composition =
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus  tincidunt, libero ac egestas maximus, nunc felis tempor ante, non pretium tortor arcu in purus. Curabitur at erat sed lorem auctor faucibus. Nulla facilisi. Aenean vel tincidunt lorem. Duis gravida.";
+    const errors = [];
+
+    main.validateAtmosphereCompositionLength(errors, atm_composition);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe(
+      "La composition de l'atmosphère doit contenir entre 5 et 200 caractères."
+    );
+  });
 });
