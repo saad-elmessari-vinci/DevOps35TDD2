@@ -6,6 +6,22 @@ const Proposal = require("../models/Proposal.js");
 const User = require("../models/User.js");
 const Planet = require("../models/Planet.js");
 
+router.post("/accept", (req, res, next) => {
+  const id = parseInt(req.body.id);
+  const proposal = Proposal.findById(id);
+  Planet.add({
+    name: proposal.name,
+    type: proposal.type,
+    size: proposal.size,
+    mass: proposal.mass,
+    density: proposal.density,
+    atm_composition: proposal.atmosphere_composition,
+  });
+  Proposal.updateStatus("Accepted", id);
+  res.redirect("/planets");
+});
+
+
 router.post("/", (req, res, next) => {
   const errors = [];
   const planetData = parsePlanetData(req.body);
