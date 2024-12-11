@@ -360,3 +360,18 @@ describe("ValidatePlanetDensity function should add an error message", function 
     expect(errors[0]).toBe(undefined);
   });
 });
+
+describe("ValidateAtmosphereCompositionLength function should add an error message", function () {
+  it("Should add an error message when atmosphere composition is smaller than 5 characters", function () {
+    const main = new Main();
+    const atm_composition = "abc";
+    const errors = [];
+
+    main.validateAtmosphereCompositionLength(errors, atm_composition);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe(
+      "La composition de l'atmosphère doit contenir entre 5 et 200 caractères."
+    );
+  });
+});

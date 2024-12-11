@@ -77,6 +77,13 @@ class Main {
       );
     }
   }
+  validateAtmosphereCompositionLength(errors, atmosphere_composition) {
+    if (!validator.isLength(atmosphere_composition, { min: 5, max: 200 })) {
+      errors.push(
+        "La composition de l'atmosphère doit contenir entre 5 et 200 caractères."
+      );
+    }
+  }
 }
 
 module.exports = Main;
