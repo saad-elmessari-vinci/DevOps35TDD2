@@ -23,7 +23,7 @@ class Main {
   }
 
   validateType(type, errors) {
-    if (!type) {
+    if (!type || type.trim().length === 0) {
       errors.push("Le type est requis.");
     }
   }

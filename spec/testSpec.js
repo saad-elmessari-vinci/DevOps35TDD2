@@ -97,4 +97,15 @@ describe("ValidateType function should add an error message", function () {
     expect(errors.length).toBe(1);
     expect(errors[0]).toBe("Le type est requis.");
   });
+
+  it("Should add 'Le type est requis' to errors if type is empty", function(){
+    const main=new Main();
+    const type="  ";
+    const errors=[];
+
+    main.validateType(type,errors);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe("Le type est requis.");
+  })
 });
