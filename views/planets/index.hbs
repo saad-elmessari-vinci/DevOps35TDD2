@@ -2,6 +2,35 @@
   <h1>Bienvenue sur la page des Planètes du Système Solaire </h1>
   <br />
 
+  <h2>Liste des Planètes</h2>
+  <br />
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Type</th>
+        <th>Taille </th>
+        <th>Masse </th>
+        <th>Densité </th>
+        <th>Composition de l'Atmosphère </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each planetsTable}}
+        <tr>
+          <td> {{this.id_planet}} </td>
+          <td> {{this.name}} </td>
+          <td> {{this.type}} </td>
+          <td> {{this.size}} </td>
+          <td> {{this.mass}} </td>
+          <td> {{this.density}} </td>
+          <td> {{this.atmosphere_composition}} </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
   <h3> Ajouter une planète du Système Solaire </h3>
   <form method="post" action="/proposals">
     <div>
