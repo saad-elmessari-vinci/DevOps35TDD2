@@ -387,4 +387,14 @@ describe("ValidateAtmosphereCompositionLength function should add an error messa
       "La composition de l'atmosphère doit contenir entre 5 et 200 caractères."
     );
   });
+  it("Should not add an error message when atmosphere composition is between 5 and 200 characters", function () {
+    const main = new Main();
+    const atm_composition = "Azote(100%)";
+    const errors = [];
+
+    main.validateAtmosphereCompositionLength(errors, atm_composition);
+
+    expect(errors.length).toBe(0);
+    expect(errors[0]).toBe(undefined);
+  });
 });
