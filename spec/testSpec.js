@@ -193,15 +193,29 @@ describe("ValidateSize function should add an error message", function () {
     expect(errors[0]).toBe(undefined);
   });
 });
-describe("ValidatePlanetSize function should add an error message",function(){
-  it("Should add an error message when size is greater than 100",function(){
-    const main=new Main();
-    const size=101;
-    const errors=[];
+describe("ValidatePlanetSize function should add an error message", function () {
+  it("Should add an error message when size is greater than 100", function () {
+    const main = new Main();
+    const size = 101;
+    const errors = [];
 
-    main.validatePlanetSize(errors,size);
+    main.validatePlanetSize(errors, size);
 
     expect(errors.length).toBe(1);
-    expect(errors[0]).toBe("La taille de la planète doit être u nombre 0.1 et 100 rayons terrestres.");
-  })
-})
+    expect(errors[0]).toBe(
+      "La taille de la planète doit être u nombre 0.1 et 100 rayons terrestres."
+    );
+  });
+  it("Should add an error message when size is smaller than 0.1", function () {
+    const main = new Main();
+    const size = 0;
+    const errors = [];
+
+    main.validatePlanetSize(errors, size);
+
+    expect(errors.length).toBe(1);
+    expect(errors[0]).toBe(
+      "La taille de la planète doit être u nombre 0.1 et 100 rayons terrestres."
+    );
+  });
+});
