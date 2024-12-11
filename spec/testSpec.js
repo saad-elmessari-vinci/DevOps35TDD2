@@ -362,8 +362,8 @@ describe("ValidatePlanetDensity function should add an error message", function 
 });
 
 describe("ValidateAtmosphereCompositionLength function should add an error message", function () {
+  const main = new Main();
   it("Should add an error message when atmosphere composition is smaller than 5 characters", function () {
-    const main = new Main();
     const atm_composition = "abc";
     const errors = [];
 
@@ -375,7 +375,6 @@ describe("ValidateAtmosphereCompositionLength function should add an error messa
     );
   });
   it("Should add an error message when atmosphere composition is greater than 200 characters", function () {
-    const main = new Main();
     const atm_composition =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus  tincidunt, libero ac egestas maximus, nunc felis tempor ante, non pretium tortor arcu in purus. Curabitur at erat sed lorem auctor faucibus. Nulla facilisi. Aenean vel tincidunt lorem. Duis gravida.";
     const errors = [];
@@ -388,7 +387,6 @@ describe("ValidateAtmosphereCompositionLength function should add an error messa
     );
   });
   it("Should not add an error message when atmosphere composition is between 5 and 200 characters", function () {
-    const main = new Main();
     const atm_composition = "Azote(100%)";
     const errors = [];
 
