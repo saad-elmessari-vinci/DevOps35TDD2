@@ -64,4 +64,15 @@ describe("ValidatePlanetNameCharacters function should add an error message", fu
       "Le nom de la planète doit contenir uniquement des caractères aplhanumériques, des espaces ou des tirets."
     );
   });
+
+  it("Should not add an error message when name is alphanumeric", function () {
+    const main = new Main();
+    const name = "Mars";
+    const errors = [];
+
+    main.validatePlanetNameCharacters(errors, name);
+
+    expect(errors.length).toBe(0);
+    expect(errors[0]).toBe(undefined);
+  });
 });
