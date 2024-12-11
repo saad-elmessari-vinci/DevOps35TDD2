@@ -117,3 +117,18 @@ describe("ValidateType function should add an error message", function () {
     expect(errors[0]).toBe(undefined);
   });
 });
+
+describe("ValidatePlanetType function should add an error message", function () {
+  it("Should add an error message if type does is not 'Rocheuse' nor 'Gazeuse' nor 'Géante glacée' ", function () {
+    const main = new Main();
+    const type = "Test";
+    const error = [];
+
+    main.validatePlanetType(error, type);
+
+    expect(error.length).toBe(1);
+    expect(error[0]).toBe(
+      "Le type de la planète doit être l'un des suivants : Rocheuse, Gazeuse, Géante glacée."
+    );
+  });
+});

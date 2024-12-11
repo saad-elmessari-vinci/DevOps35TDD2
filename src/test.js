@@ -27,6 +27,17 @@ class Main {
       errors.push("Le type est requis.");
     }
   }
+
+  validatePlanetType(errors, type) {
+    const validTypes = ["Rocheuse", "Gazeuse", "Géante glacée"];
+    if (type!== "Rocheuse" && type!=="Gazeuse" && type!=="Géante glacée") {
+      errors.push(
+        `Le type de la planète doit être l'un des suivants : ${validTypes.join(
+          ", "
+        )}.`
+      );
+    }
+  }
 }
 
 module.exports = Main;
