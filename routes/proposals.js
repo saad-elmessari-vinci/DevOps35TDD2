@@ -103,5 +103,23 @@ function validatePlanetSize(errors, size) {
     );
   }
 }
+function validateMassPlanet(errors, mass) {
+  validateMass(mass, errors);
+  validatePlanetMass(errors, mass);
+}
+
+function validateMass(mass, errors) {
+  if (isNaN(mass) || mass < 0) {
+    errors.push("Valeur de la masse invalide ");
+  }
+}
+
+function validatePlanetMass(errors, mass) {
+  if (!validator.isFloat(mass.toString(), { min: 0.001, max: 5000 })) {
+    errors.push(
+      "La masse de la planète doit être un nombre entre 0.001 et 5000 masses terrestres."
+    );
+  }
+}
 
 module.exports = router;
